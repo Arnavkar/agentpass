@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(to bottom right, #000000, #111111);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.card {
+  @apply bg-gradient-to-b from-[#121212] to-[#0a0a0a];
+  @apply rounded-lg border border-white/5;
+  @apply shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.05)];
+  @apply relative overflow-hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.05),
+    transparent
+  );
+}
+
+.input-field {
+  @apply w-full p-2 bg-black/30 border border-white/5 rounded-md;
+  @apply text-white placeholder-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-transparent;
+  @apply transition-all duration-200;
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-gradient-to-r from-indigo-600 to-indigo-700;
+  @apply hover:from-indigo-500 hover:to-indigo-600;
+  @apply text-white rounded-md;
+  @apply transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-black/30 hover:bg-black/50;
+  @apply text-gray-300 hover:text-white rounded-md;
+  @apply transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-gray-500/30 focus:ring-offset-2 focus:ring-offset-black;
+  @apply border border-white/5;
+}
+
+.btn-danger {
+  @apply px-4 py-2 bg-gradient-to-r from-red-600 to-red-700;
+  @apply hover:from-red-500 hover:to-red-600;
+  @apply text-white rounded-md;
+  @apply transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.credential-item {
+  @apply flex items-center justify-between p-4;
+  @apply bg-black/20 rounded-lg border border-white/5;
+  @apply hover:border-white/10 hover:bg-black/30;
+  @apply transition-all duration-200;
+}
+
+.credential-group {
+  @apply card p-6 space-y-4;
+}
+
+/* Landing Page Animations */
+.feature-card {
+  @apply p-6 card;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.workflow-step {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
